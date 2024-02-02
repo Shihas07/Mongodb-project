@@ -1,0 +1,69 @@
+
+
+
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .container {
+      max-width: 400px;
+      margin: auto;
+      margin-top: 50px;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+    .error-message {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container bg-success">
+    <form id="loginForm" action="/login" method="post" onsubmit="return validateForm()">
+      <div class="mb-3 ">
+          <h1 class="mx-5 text-mute">LOG IN</h1>
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" >
+        <div id="nameError" class="error-message"></div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" >
+        <div id="passwordError" class="error-message"></div>
+      </div>
+      <button type="submit" class="btn btn-primary">Log In</button>
+      <% if(typeof errorMessage !== 'undefined') { %>
+        <div class="error-message mt-3"><%= errorMessage %></div>
+      <% } %>
+    </form>
+    <form action="/signup" method="get">
+      <div class=" mx-5 mb-5">
+          <input
+            class="btn btn-success bg-warning px-5 py-3"
+            type="submit"
+            value="Create new account"
+          />
+        </div>
+    </form>
+  </div>
+</body>
+</html>
